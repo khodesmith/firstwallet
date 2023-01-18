@@ -2,6 +2,7 @@
 
 import 'package:firstwallet/util/mybutton.dart';
 import 'package:firstwallet/util/mycard.dart';
+import 'package:firstwallet/util/mylist.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -18,9 +19,37 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.green[400],
+        child: Icon(Icons.monetization_on_outlined),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.grey[200],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              onPressed: (() {}),
+              icon: Icon(
+                Icons.home_outlined,
+                size: 35,
+              ),
+              // iconSize: 35,
+            ),
+            IconButton(
+              onPressed: (() {}),
+              icon: Icon(
+                Icons.settings,
+                size: 35,
+              ),
+            )
+          ],
+        ),
+      ),
       body: SafeArea(
         child: Column(
-          // ignore: prefer_const_literals_to_create_immutables
           children: [
             //appbar
             Padding(
@@ -88,17 +117,17 @@ class _HomePageState extends State<HomePage> {
               count: 3,
               effect: ExpandingDotsEffect(activeDotColor: Colors.grey),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 40),
 
             //3 buttons: send pay bills
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   //send button
                   MyButton(
-                    color: Colors.purple[600],
+                    // color: Colors.purple[600],
                     logo: "lib/icons/send-money.png",
                     buttonName: "Send",
                   ),
@@ -106,19 +135,36 @@ class _HomePageState extends State<HomePage> {
                   MyButton(
                     logo: "lib/icons/credit-card.png",
                     buttonName: "Pay",
-                    color: Colors.white,
+                    // color: Colors.white,
                   ),
                   // bills button
                   MyButton(
                     logo: "lib/icons/bill.png",
                     buttonName: "Bills",
-                    color: Colors.blue[400],
+                    // color: Colors.blue[400],
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 25),
+            //column stats + transactions
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Column(
+                children: const [
+                  MyList(
+                    listIcon: "lib/icons/statistics.png",
+                    listTitle: "Statistics",
+                    listSubTitle: "Payments & Income",
+                  ),
+                  MyList(
+                    listIcon: "lib/icons/transaction.png",
+                    listTitle: "Transactions",
+                    listSubTitle: "Transaction History",
                   )
                 ],
               ),
             )
-
-            //column stats + transactions
           ],
         ),
       ),

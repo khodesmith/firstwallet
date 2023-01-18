@@ -1,11 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
   final String logo;
-  final color;
+  // final color;
   final String buttonName;
-  const MyButton(
-      {super.key, required this.logo, this.color, required this.buttonName});
+  const MyButton({super.key, required this.logo, required this.buttonName});
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +14,13 @@ class MyButton extends StatelessWidget {
       children: [
         Container(
           height: 90,
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-              color: color,
+              // color: color,
               borderRadius: BorderRadius.circular(20),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
-                  color: Colors.grey.shade400,
+                  color: Colors.white,
                   blurRadius: 40,
                   spreadRadius: 10,
                 )
@@ -28,7 +29,7 @@ class MyButton extends StatelessWidget {
             child: Image.asset(logo),
           ),
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 4),
         Text(
           buttonName,
           style: TextStyle(
